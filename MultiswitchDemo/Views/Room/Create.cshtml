@@ -1,0 +1,40 @@
+﻿@using MultiswitchDemo.Models
+@model Room
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create Room</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body style="margin-left:10px">
+    <h1>Create Room</h1>
+    @using (Html.BeginForm("Create", "Room"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.RoomNumber)
+            @Html.TextBoxFor(x => x.RoomNumber, new { @class = "form-control" })
+            <br />
+            @Html.LabelFor(x => x.RoomName)
+            @Html.TextBoxFor(x => x.RoomName, new { @class = "form-control" })
+            <br />
+            <div class="checkbox">
+                @Html.CheckBoxFor(model => model.IsReserved, new { htmlAttributes = new { @class = "form-control pull-left" } })
+                @Html.LabelFor(x => x.IsReserved)
+            </div>
+        </div>
+        <br />
+        <input type="submit" value="Submit" class="btn btn-default"  />
+    }
+    
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
