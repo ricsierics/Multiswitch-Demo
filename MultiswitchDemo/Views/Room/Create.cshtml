@@ -46,7 +46,13 @@
 			$('.multi-switch').multiSwitch({
 				functionOnChange: function ($element) {
 					var value = $element.val();
-					alert(value);
+				    //alert(value);
+				    if (value == "true") {
+				        $element.attr("checked", "checked");
+					}
+					else {
+				        $element.removeAttr("checked");
+					}
 				}
 			});
 		});
